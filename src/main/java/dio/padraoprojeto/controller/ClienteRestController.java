@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import dio.padraoprojeto.model.Cliente;
 import dio.padraoprojeto.service.ClienteService;
 
+import java.util.List;
+
 /**
  * Esse {@link RestController} representa nossa <b>Facade</b>, pois abstrai toda
  * a complexidade de integrações (Banco de Dados H2 e API do ViaCEP) em uma
@@ -54,5 +56,16 @@ public class ClienteRestController {
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         clienteService.deletar(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/todos/{cep}")
+    public ResponseEntity<List<Cliente>> pesquisarPorCep(@PathVariable String cep){
+        return ResponseEntity.ok(clienteService.todosPorCep(cep));
+    }
+
+    @GetMapping("/todos/cidade/{cidade}")
+    public ResponseEntity<List<Cliente>> pesquisarPorCidade(@PathVariable String cidade){
+        System.out.println(cidade);
+        return ResponseEntity.ok(clienteService.todosPorCidade(cidade));
     }
 }

@@ -1,4 +1,5 @@
 package dio.padraoprojeto.service.impl;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,17 @@ public class ClienteServiceImpl implements ClienteService {
         // Deletar Cliente por ID.
         clienteRepository.deleteById(id);
     }
+
+    @Override
+    public List<Cliente> todosPorCep(String cep) {
+        return clienteRepository.findByEnderecoCep(cep);
+    }
+
+    @Override
+    public List<Cliente> todosPorCidade(String cidade){
+        return clienteRepository.findByEnderecoLocalidade(cidade);
+    }
+
 
     private void salvarClienteComCep(Cliente cliente) {
         // Verificar se o Endereco do Cliente já existe (pelo CEP).

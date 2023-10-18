@@ -2,6 +2,8 @@ package dio.padraoprojeto.service;
 
 import dio.padraoprojeto.model.Cliente;
 
+import java.util.List;
+
 /**
  * Interface que define o padrão <b>Strategy</b> no domínio de cliente. Com
  * isso, se necessário, podemos ter multiplas implementações dessa mesma
@@ -21,4 +23,7 @@ public interface ClienteService {
 
     void deletar(Long id);
 
+    List<Cliente> todosPorCep(String cep);
+
+    List<Cliente> todosPorCidade(String cidade);
 }
