@@ -25,6 +25,32 @@ Uma API RESTful desenvolvida com Spring Boot para o cadastro de clientes. Ao cad
 
 ## Endpoints
 
+### GET: /clientes 
+
+Descrição: Consultar todos os clientes
+
+Response Body:
+```json
+[
+    {
+        "id": 2,
+        "nome": "João Silva",
+        "endereco": {
+            "cep": "01001-000",
+            "logradouro": "Praça da Sé",
+            "complemento": "lado ímpar",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+        }
+    }
+]
+```
+
 ### POST: /clientes
 
 Descrição: Cadastro de um novo cliente
@@ -38,8 +64,26 @@ Request Body:
     }
   }
 ```
-### GET: /clientes 
 
-Descrição: Consultar todos os clientes
+Response Body:
+```json
+  {
+    "id": 2,
+    "nome": "João Silva",
+    "endereco": {
+        "cep": "01001-000",
+        "logradouro": "Praça da Sé",
+        "complemento": "lado ímpar",
+        "bairro": "Sé",
+        "localidade": "São Paulo",
+        "uf": "SP",
+        "ibge": "3550308",
+        "gia": "1004",
+        "ddd": "11",
+        "siafi": "7107"
+    }
+  }
+````
+
 
 
