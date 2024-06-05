@@ -1,4 +1,4 @@
-# Cliente API
+# Api SpringBoot-RestFull
 
 Uma API RESTful desenvolvida com Spring Boot para o cadastro de clientes. Ao cadastrar um cliente, a API faz uma busca em outra API web para obter os dados do CEP informado.
 
