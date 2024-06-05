@@ -1,10 +1,15 @@
 # Api SpringBoot-RestFull
 
-Uma API RESTful desenvolvida com Spring Boot para o cadastro de clientes. Ao cadastrar um cliente, a API faz uma busca em outra API web para obter os dados do CEP informado.
+API RESTful desenvolvida no bootcamp santander week, realizado na plataforma DIO( digital innovation one).
+
+A ideia principal do projeto é desenvolver uma api utilizando o Spring Boot para realizar o cadastro de clientes, buscando em uma API externa os dados de endereço de acordo com o CEP informado no cadastro do cliente.
 
 ## Funcionalidades
 
 - Cadastro de clientes
+- Consulta de clientes cadastrados
+- Excluir clientes
+- Atualizar clientes
 - Consulta de dados de CEP através de uma API externa
 
 ## Tecnologias Utilizadas
@@ -12,7 +17,6 @@ Uma API RESTful desenvolvida com Spring Boot para o cadastro de clientes. Ao cad
 - Java
 - Spring Boot
 - Spring Data JPA
-- Hibernate
 - RESTful APIs
 - Maven
 
@@ -23,7 +27,7 @@ Uma API RESTful desenvolvida com Spring Boot para o cadastro de clientes. Ao cad
 - Java 11 ou superior
 - Maven
 
-## Endpoints
+# Endpoints de CRUD 
 
 ### GET: /clientes 
 
@@ -85,5 +89,45 @@ Response Body:
   }
 ````
 
+### PUT: /clientes/{id}
 
+Descrição: Atualizar um cliente pelo id
 
+ Request Body:
+```json
+  {
+    "id":2,
+    "nome":"João Silva",
+    "endereco":{"cep":"01001000"}
+  }
+````
+Response Body:
+```json
+  {
+    "id": 2,
+    "nome": "João Silva",
+    "endereco": {
+        "cep": "01001-000",
+        "logradouro": "Praça da Sé",
+        "complemento": "lado ímpar",
+        "bairro": "Sé",
+        "localidade": "São Paulo",
+        "uf": "SP",
+        "ibge": "3550308",
+        "gia": "1004",
+        "ddd": "11",
+        "siafi": "7107"
+    }
+}
+````
+
+### DELETE: /clientes/{id}
+
+Descrição: Excluir um cliente pelo id
+
+Response Body:
+```json
+  {
+    "mensagem":"Cliente deletado com sucesso"
+  }
+````
